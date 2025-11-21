@@ -1,11 +1,21 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import "../styles/index.css";
+import { marked } from 'marked';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const aboutmd=`
+关于 [我](./aboutme)。
+`
+const about:string = await marked(aboutmd);
 ---
-
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Songlll 导航页</title>
+	</head>
+	<body>
+		<header>导航页</header>
+		<div class="card" set:html={about}>
+		</div>
+	</body>
+</html>
