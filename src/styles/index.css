@@ -4,20 +4,27 @@
 }
 
 html{
-    font-size: large;
     background: linear-gradient(to right,var(--background-color1),var(--background-color2));
 }
 
 header{
+    transition: all 0.2s ease-in-out;
     position: sticky;
     top: 0;
-    background-color: #00ff117e;
-    font-size: 36px;
-    font-weight: 600;
+    background-color: #463cff80;
+    font-size: 24px;
+    font-weight: 500;
     padding: 10px;
     z-index: 100;
     border-radius: 10px;
     box-shadow: 1px 2px 4px 2px rgba(0, 0, 0, 0.2);
+    color: rgba(0,0,0,0.8);
+    cursor: default;
+}
+
+header:hover{
+    background-color: #463cffE0;
+    color: rgba(0,0,0,1);
 }
 
 .card{
@@ -34,4 +41,24 @@ header{
 .card:hover{
     transform:translateY(-2px);
     box-shadow: 3px 4px 6px 2px rgba(0, 0, 0, 0.3);
+    background-color: #ffffffe0;
+}
+
+.base{
+    display: none;
+}
+
+#dialog{
+    position: fixed;
+    top: 20px;
+    left: 10%;
+    width: 80%;
+    transition: all 0.2s ease-in-out;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #ff2c2cc2;
+    border-radius: 10px;
+    padding: 2px;
+    box-shadow: 1px 2px 4px 2px rgba(0, 0, 0, 0.2);
 }

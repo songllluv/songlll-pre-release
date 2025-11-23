@@ -1,0 +1,67 @@
+---
+import MarkdownIt from 'markdown-it';
+import { getCollection } from "astro:content";
+import "/src/styles/index.css";
+
+export async function getStaticPaths() {
+  const posts = await getCollection('articles');
+  return posts.map(p => ({
+    params: { slug: p.slug },
+    props: { post: p }
+  }));
+}
+
+const { post } = Astro.props;
+
+const md = new MarkdownIt({
+  html: false,
+  linkify: true,
+  typographer: true
+});
+
+const postBody: string = md.render(post.body);
+---
+<html lang="zh">
+	<head>
+        <meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{post.data.title}</title>
+        <script>
+            function showDialog(type,msg){
+                let Dialog = document.createElement("div");
+                Dialog.id = "dialog";
+                Dialog.innerHTML = `
+            <h1>${type}</h1>
+            <p>${msg}</p>
+            `;
+                document.body.appendChild(Dialog);
+                setTimeout(() => {
+                    Dialog.style.opacity = '0';
+                }, 1500);
+                setTimeout(() => {
+                    document.body.removeChild(Dialog);
+                }, 2000);
+            }
+
+        showDialog("提示：","公式加载较慢，请耐心等待");
+        </script>
+        <script class="show" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js">
+        </script>
+        <script class="show">
+            MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']]
+                },
+                svg: {
+                    fontCache: 'global'
+                }
+            };
+        </script>
+    </head>
+	<body>
+		<header>{post.data.title}</header>
+		<div class="card show display"id="content">
+            <div set:html={postBody}></div>
+        </div>
+	</body>
+</html>
