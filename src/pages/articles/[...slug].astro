@@ -26,24 +26,10 @@ const postBody: string = md.render(post.body);
         <meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{post.data.title}</title>
-        <script>
-            function showDialog(type,msg){
-                let Dialog = document.createElement("div");
-                Dialog.id = "dialog";
-                Dialog.innerHTML = `
-            <h1>${type}</h1>
-            <p>${msg}</p>
-            `;
-                document.body.appendChild(Dialog);
-                setTimeout(() => {
-                    Dialog.style.opacity = '0';
-                }, 1500);
-                setTimeout(() => {
-                    document.body.removeChild(Dialog);
-                }, 2000);
-            }
+        <script type="module">
+            import { showDialog } from '/index.js';
 
-        showDialog("提示：","公式加载较慢，请耐心等待");
+            showDialog("提示：","公式首次加载较慢，请耐心等待。公式加载有缓存，第二次加载会很快。");
         </script>
         <script class="show" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js">
         </script>
