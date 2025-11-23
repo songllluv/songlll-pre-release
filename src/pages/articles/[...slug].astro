@@ -26,11 +26,6 @@ const postBody: string = md.render(post.body);
         <meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{post.data.title}</title>
-        <script type="module">
-            import { showDialog } from '/index.js';
-
-            showDialog("提示：","公式首次加载较慢，请耐心等待。公式加载有缓存，第二次加载会很快。");
-        </script>
         <script class="show" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js">
         </script>
         <script class="show">
@@ -42,6 +37,11 @@ const postBody: string = md.render(post.body);
                     fontCache: 'global'
                 }
             };
+            MathJax.Hub.processSectionDelay = 0
+            MathJax.typesetPromise()
+        </script>
+        <script type="module">
+            import { showDialog } from '/index.js';
         </script>
     </head>
 	<body>
