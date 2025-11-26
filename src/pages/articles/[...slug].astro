@@ -26,8 +26,11 @@ const postBody: string = md.render(post.body);
         <meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{post.data.title}</title>
-        <script class="show" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js">
-        </script>
+        <script class="show" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+        <script class="show" defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+        <link class="show" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css"></link>
+        
+        <script>hljs.highlightAll();</script>
         <script class="show">
             MathJax = {
                 tex: {
@@ -37,7 +40,6 @@ const postBody: string = md.render(post.body);
                     fontCache: 'global'
                 }
             };
-            MathJax.Hub.processSectionDelay = 0
             MathJax.typesetPromise()
         </script>
         <script type="module">

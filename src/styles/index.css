@@ -49,6 +49,29 @@ header:hover{
     display: none;
 }
 
+code{
+    background-color: #cfcfcf4e;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+pre{
+    padding: 10px;
+    border-radius: 6px;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: auto;
+    margin: 10px;
+}
+
+blockquote{
+    border-left: 4px solid #7a7a7a88;
+    margin: 10px;
+    padding-left: 10px;
+    color: #555555;
+    background-color: #dadada27;
+}
+
 #dialog{
     z-index: 200;
     position: fixed;
