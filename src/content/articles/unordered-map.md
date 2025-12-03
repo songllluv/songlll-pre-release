@@ -120,7 +120,7 @@ int main(){
 哇，真的AC了！
 # [记录](https://www.luogu.com.cn/record/233826465)
 但是，我知道作为聪明的你，一定不满足于这个：
-![](https://i-blog.csdnimg.cn/img_convert/db9379e07547ab1b5a9cd8b631021fde.png)
+![](/src/images/db9379e07547ab1b5a9cd8b631021fde.png)
 额嗯？不是优化了吗？！怎么还是这么长时间？！为什么，为什么，这究竟是为什么？！一定是还有什么别的方法！
 
 是，的！
